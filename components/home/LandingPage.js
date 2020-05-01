@@ -1,10 +1,8 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
-import Canvas from '../canvas/Canvas';
+import CanvasStack from '../canvas/CanvasStack';
 import ViewPosters from '../posters/ViewPosters';
 
 const Tab = createBottomTabNavigator();
@@ -28,7 +26,7 @@ const tabBarOptions = {
 const LandingPage = () => {
     return(
         <Tab.Navigator tabBarOptions={ tabBarOptions } >
-            <Tab.Screen name="CREATE" component={ Canvas } />
+            <Tab.Screen name="CREATE" component={ CanvasStack } />
             <Tab.Screen name="VIEW" component={ ViewPosters } />
         </Tab.Navigator>
     )
