@@ -15,7 +15,7 @@ const tabBarOptions = {
     tabStyle: {
         flex: 1,
         justifyContent: 'center',
-        borderTopWidth: 1,
+        borderTopWidth: 0.2,
         borderTopColor: 'white'
     },
     labelStyle: {
