@@ -28,7 +28,7 @@ const CanvasFormFields = ({ navigation, submitPosterMeta }) => {
 
                 <Text style={{ width: 200, textAlign: 'center', 
                     fontFamily: 'Helvetica', fontSize: 14, marginBottom: 5 }}>
-                    To create a poster, let's get some information first.
+                    Create a poster.
                 </Text>
 
                 <TextInput style={Universals.textInput} placeholder="Title" 
