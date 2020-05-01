@@ -1,7 +1,7 @@
 import { CHANGE_BACKGROUND_COLOR, SUBMIT_POSTER_FORM } from '../actions/types';
 
 const initialState = {
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
     backgroundImage: '',
     title: '',
     author: '',
