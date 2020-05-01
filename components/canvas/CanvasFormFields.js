@@ -19,7 +19,7 @@ const CanvasFormFields = ({ navigation, submitPosterMeta }) => {
     const submitPosterInfo = () => {
         if ( !title || !author ) return alert('bad input');
         submitPosterMeta(posterInfo);
-        navigation.navigate('Canvas');
+        navigation.navigate('Canvas')
     }
 
     return (

@@ -6,7 +6,8 @@ import ButtonStyleContainer from './ButtonStyleContainer'
 
 const { width, height } = Dimensions.get('window');
 
-const ViewPosters = ({ backgroundColor }) => {
+const ViewPosters = ({ backgroundColor, navigation }) => {
+
     const [ buttonStyleClicked, setButtonStyleClicked ] = useState(false);
     const [ dimensions, setdimensions ] = useState({
         width,
