@@ -1,7 +1,7 @@
 import { CHANGE_BACKGROUND_COLOR } from '../actions/types';
 
 const initialState = {
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     backgroundImage: ''
 }
 
