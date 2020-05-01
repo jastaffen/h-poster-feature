@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
-import CanvasStack from '../canvas/CanvasStack';
+import CanvasForm from '../canvas/CanvasForm';
 import ViewPosters from '../posters/ViewPosters';
 
 const Tab = createBottomTabNavigator();
@@ -23,26 +23,13 @@ const tabBarOptions = {
     activeTintColor: 'white'
  }
 
-const getIsTabBarVisible = (route) => {
-    const routeName = route.state ? 
-        route.state.routes[1] : null;
-        
-    if (routeName) {
-        return routeName.name === 'Canvas' ? false : true
-    }
-    return true;
-}
-
-const LandingPage = () => {
+const CanvasTabs = () => {
     return(
-        <Tab.Navigator tabBarOptions={ tabBarOptions } 
-        screenOptions={({route}) => ({
-            tabBarVisible: getIsTabBarVisible(route)
-          })} >
-            <Tab.Screen name="CREATE" component={ CanvasStack } />
+        <Tab.Navigator tabBarOptions={ tabBarOptions } >
+            <Tab.Screen name="CREATE" component={ CanvasForm } />
             <Tab.Screen name="VIEW" component={ ViewPosters } />
         </Tab.Navigator>
     )
 }
 
-export default LandingPage;
+export default CanvasTabs;
