@@ -16,6 +16,7 @@ const ColorStyleBar = ({ backgroundColor, changeBackgroundColor }) => {
     }
 
     const { crayola } = colors;
+    
     return (
     <MoveIntoView style={{position: 'absolute', bottom: 28, marginLeft: 8}}>
         <SafeAreaView>
