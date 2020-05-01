@@ -18,7 +18,7 @@ export const Universals = StyleSheet.create({
         width: 250,
         height: 50,
         marginLeft: 5,
-        marginTop: 20,
+        marginBottom: 20,
         fontFamily: 'Helvetica',
         fontSize: 15,
         padding: 10

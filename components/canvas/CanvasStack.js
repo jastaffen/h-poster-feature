@@ -9,7 +9,10 @@ const Stack = createStackNavigator();
 const CanvasStack = () => (
     <Stack.Navigator headerMode='none' >
         <Stack.Screen  name="CanvasForm" component={CanvasForm} />
-        <Stack.Screen name="Canvas" component={Canvas} />
+        <Stack.Screen name="Canvas" component={Canvas} 
+        options={{
+            tabBarVisible: false
+        }} />
     </Stack.Navigator>
 )
 
