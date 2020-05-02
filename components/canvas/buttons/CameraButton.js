@@ -5,10 +5,11 @@ import { connect } from 'react-redux';
 import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
 
+import { SELECT_BACKGROUND_IMAGE } from '../../../actions/types';
 
 import Camera from '../../../images/upload-photo.png';
 
-const CameraButton = ({ backgroundImage }) => {
+const CameraButton = ({ setBackgroundImage }) => {
 
     const getPermissionAsync = async () => {
         if (Platform.os === 'ios') {
@@ -28,7 +29,7 @@ const CameraButton = ({ backgroundImage }) => {
             quality: 1,
           });
           if (!result.cancelled) {
-              console.log(result.uri)
+              setBackgroundImage(result.uri);
           }
           console.log(result);
         } catch (err) {
@@ -36,7 +37,6 @@ const CameraButton = ({ backgroundImage }) => {
         }
     };
 
-    console.log(backgroundImage);
 
     return(
         <TouchableOpacity style={{marginRight: 10 }} onPress={_pickImage}>
@@ -45,8 +45,11 @@ const CameraButton = ({ backgroundImage }) => {
     )
 }
 
-const msp = state => ({
-    backgroundImage: state.background.backgroundImage
+const mdp = dispatch => ({
+    setBackgroundImage: (imageUrl) => dispatch({
+        type: SELECT_BACKGROUND_IMAGE,
+        payload: imageUrl
+    })
 })
 
-export default connect(msp)(CameraButton);
+export default connect( null, mdp )(CameraButton);

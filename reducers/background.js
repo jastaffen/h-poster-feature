@@ -1,4 +1,5 @@
-import { CHANGE_BACKGROUND_COLOR, SUBMIT_POSTER_FORM } from '../actions/types';
+import { CHANGE_BACKGROUND_COLOR, SUBMIT_POSTER_FORM, 
+    SELECT_BACKGROUND_IMAGE, DELETE_BACKGROUND_IMAGE } from '../actions/types';
 
 const initialState = {
     backgroundColor: '#FFFFFF',
@@ -22,7 +23,20 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 backgroundColor: payload
-            }    
+            }   
+        
+        case SELECT_BACKGROUND_IMAGE:
+            return {
+                ...state,
+                backgroundImage: payload
+            }
+        
+        case DELETE_BACKGROUND_IMAGE: 
+            return {
+                ...state,
+                backgroundImage: ''
+            }
+
         default:
             return state;
     }
