@@ -5,7 +5,7 @@ import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 import ButtonStyleContainer from './ButtonStyleContainer';
 import StyleBarContainer from './stylebar/StyleBarContainer';
-import SwipeAndUnMount from '../animations/SwipeAndUnMount';
+import Scale from '../animations/Scale';
 
 const { width, height } = Dimensions.get('window');
 
@@ -49,18 +49,18 @@ const ViewPosters = ({ background: { backgroundColor, backgroundImage },
         <GestureRecognizer onSwipeDown={ handleSwipeDown }>
 
             { backgroundImage ?
-            
-            <ImageBackground style={{ width: dimensions.width, 
-                height: dimensions.height, justifyContent: 'center', 
-                alignItems: 'center', resizeMode: "contain" }} 
-                source={{ uri: backgroundImage }}>
+            <Scale>
+                <ImageBackground style={{ width: dimensions.width, 
+                    height: dimensions.height, justifyContent: 'center', 
+                    alignItems: 'center', resizeMode: "contain" }} 
+                    source={{ uri: backgroundImage }}>
 
-                    <ButtonStyleContainer 
-                        handleButtonClicked={handleButtonClicked}
-                    />
+                        <ButtonStyleContainer 
+                            handleButtonClicked={handleButtonClicked}
+                        />
 
-            </ImageBackground>
-
+                </ImageBackground>
+            </Scale>
             :
 
             <View style={{ backgroundColor: backgroundColor, 
