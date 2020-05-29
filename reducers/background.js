@@ -6,7 +6,7 @@ const initialState = {
     backgroundImage: '',
     title: '',
     author: '',
-    timestamp: ''
+    timestamp: '',
 }
 
 export default function(state = initialState, action) {

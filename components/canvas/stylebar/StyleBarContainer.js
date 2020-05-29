@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 import ColorStyleBar from './ColorStyleBar';
+import ShapeStyleBar from './ShapeStyleBar';
 
 const StyleBarContainer = ({ type }) => {
     // if (type === 'color') {
@@ -14,6 +15,9 @@ const StyleBarContainer = ({ type }) => {
         height: 10}}>
             {type === 'color' && (
                 <ColorStyleBar />
+            )}
+            {type === 'shapes' && (
+                <ShapeStyleBar />
             )}
         </View>
     )

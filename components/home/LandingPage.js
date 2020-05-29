@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CanvasStack from '../canvas/CanvasStack';
 import ViewPosters from '../posters/ViewPosters';
 
+
 const Tab = createBottomTabNavigator();
 
 const tabBarOptions = {

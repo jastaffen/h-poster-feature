@@ -3,8 +3,8 @@ import { View, Text } from 'react-native';
 
 const ViewPosters = () => {
     return(
-        <View>
-            <Text>HI</Text>
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <Text style={{fontSize: 30}}>HI</Text>
         </View>
     )
 }

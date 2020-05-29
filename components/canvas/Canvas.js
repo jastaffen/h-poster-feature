@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { View, Dimensions, ImageBackground } from 'react-native';
+import { View, Dimensions, ImageBackground, Text } from 'react-native';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 import ButtonStyleContainer from './ButtonStyleContainer';
 import StyleBarContainer from './stylebar/StyleBarContainer';
 import Scale from '../animations/Scale';
+import ShapesContainer from './shapes/ShapesContainer';
+import Movable from '../animations/Movable';
 
 const { width, height } = Dimensions.get('window');
 
-const ViewPosters = ({ background: { backgroundColor, backgroundImage }, 
-    navigation }) => {
+const Canvas = ({ background: { backgroundColor, backgroundImage }, 
+    navigation, shapeState: { shapes } }) => {
 
     const [ buttonStyleClicked, setButtonStyleClicked ] = useState(false);
     const [ dimensions, setDimensions ] = useState({
@@ -59,18 +61,22 @@ const ViewPosters = ({ background: { backgroundColor, backgroundImage },
                             handleButtonClicked={handleButtonClicked}
                         />
 
+                        { shapes.length > 0 && <ShapesContainer shapes={shapes} 
+                            dimensions={dimensions} />}
+
                 </ImageBackground>
             </Scale>
             :
 
-            <View style={{ backgroundColor: backgroundColor, 
+            <View style={{ backgroundColor: backgroundColor,
                 width: dimensions.width, height: dimensions.height, 
                 justifyContent: 'center', alignItems: 'center' }} >
 
                     <ButtonStyleContainer 
                         handleButtonClicked={handleButtonClicked}
                     />
-
+                    
+                    
                 </View>
                 
             }
@@ -81,12 +87,15 @@ const ViewPosters = ({ background: { backgroundColor, backgroundImage },
         {buttonStyleClicked && type && (
             <StyleBarContainer type={type} />
         )}
+        { shapes.length > 0 && <ShapesContainer shapes={shapes} 
+        />}
     </>
     )
 }
 
 const msp = state => ({
     background: state.background,
+    shapeState: state.shapes
 });
 
-export default connect(msp)(ViewPosters);
+export default connect(msp)(Canvas);
