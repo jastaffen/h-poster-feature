@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, TouchableWithoutFeedback, Keyboard, Text } from 'react-native';
 
 import CanvasLanding from '../logoComponents/CanvasLanding';
 import CanvasFormFields from './CanvasFormFields';
+import Movable from '../animations/Movable';
 
 import { Universals } from '../../stylesheets/Universals';
 

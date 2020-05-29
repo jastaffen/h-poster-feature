@@ -31,7 +31,6 @@ const CameraButton = ({ setBackgroundImage }) => {
           if (!result.cancelled) {
               setBackgroundImage(result.uri);
           }
-          console.log(result);
         } catch (err) {
           console.log(err);
         }
