@@ -1,14 +1,21 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Animated, PanResponder, Dimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window');
 
+
 const Movable = props => {
+    const navigation = useNavigation();
+
+    const [ target, setTarget ] = useState(null)
     const pan = useRef(new Animated.ValueXY()).current;
 
     const panResponder = useRef(
         PanResponder.create({
-          onMoveShouldSetPanResponder: () => true,
+          onMoveShouldSetPanResponder: (e) => { 
+              setTarget(e.target); 
+              return true},
           onPanResponderGrant: () => {
             pan.setOffset({
               x: pan.x._value,
@@ -24,14 +31,19 @@ const Movable = props => {
               { dx: pan.x, dy: pan.y }
             ]
           ),
-          onPanResponderRelease: () => {
+          onPanResponderRelease: (e) => {
+            setTarget(null);
             pan.flattenOffset();
           }
         })
       ).current;
     
-    console.log(pan)
-
+    // if shape is not selected turn off swipable navigation gestures
+    target !== null ? 
+      navigation.setOptions({ gestureEnabled: false }) 
+      : 
+      navigation.setOptions({ gestureEnabled: true })
+    
     return ( 
         <Animated.View { ...panResponder.panHandlers } 
             style={{ transform: [{ translateX: pan.x }, { translateY: pan.y }], 
