@@ -7,7 +7,7 @@ import Canvas from './Canvas';
 const Stack = createStackNavigator();
 
 const CanvasStack = () => (
-    <Stack.Navigator headerMode='none' >
+    <Stack.Navigator headerMode='none'>
         <Stack.Screen  name="CanvasForm" component={CanvasForm} />
         <Stack.Screen name="Canvas" component={Canvas} 
          />

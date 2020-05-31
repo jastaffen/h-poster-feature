@@ -5,7 +5,7 @@ import Triangle from './Triangle';
 import Square from './Square';
 import Circle from './Circle';
 
-const ShapesContainer = ({ shapes }) => {
+const ShapesContainer = ({ shapes, navigation }) => {
 
     return (
         <View style={{ zIndex: 2000, 

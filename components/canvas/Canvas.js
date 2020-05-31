@@ -87,7 +87,7 @@ const Canvas = ({ background: { backgroundColor, backgroundImage },
         {buttonStyleClicked && type && (
             <StyleBarContainer type={type} />
         )}
-        { shapes.length > 0 && <ShapesContainer shapes={shapes} 
+        { shapes.length > 0 && <ShapesContainer shapes={shapes} navigation={navigation}
         />}
     </>
     )
