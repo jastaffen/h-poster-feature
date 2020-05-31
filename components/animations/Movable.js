@@ -7,8 +7,10 @@ const { width, height } = Dimensions.get('window');
 
 const Movable = props => {
     const navigation = useNavigation();
+    const TURN_OFF_NAVIGATION = { gestureEnabled: false };
+    const TURN_ON_NAVIGATION = { gestureEnabled: true };
 
-    const [ target, setTarget ] = useState(null)
+    const [ target, setTarget ] = useState(null);
     const pan = useRef(new Animated.ValueXY()).current;
 
     const panResponder = useRef(
@@ -40,9 +42,9 @@ const Movable = props => {
     
     // if shape is not selected turn off swipable navigation gestures
     target !== null ? 
-      navigation.setOptions({ gestureEnabled: false }) 
+      navigation.setOptions(TURN_OFF_NAVIGATION)
       : 
-      navigation.setOptions({ gestureEnabled: true })
+      navigation.setOptions(TURN_ON_NAVIGATION)
     
     return ( 
         <Animated.View { ...panResponder.panHandlers } 
